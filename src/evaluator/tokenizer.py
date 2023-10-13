@@ -20,7 +20,7 @@ class Token:
     """
 
     def __init__(self, token_type: TokenType, value):
-        self.token_type = token_type.value
+        self.token_type = token_type
         self.value = value
 
     def __eq__(self, other):
@@ -37,11 +37,15 @@ class Token:
         if isinstance(other, Token):
             return self.token_type == other.token_type
         if isinstance(other, TokenType):
-            return self.token_type == other.value
-        return self.token_type == other
+            return self.token_type == other
+        return self.token_type.value == other
+
+    def __repr__(self):
+        return f'{self.token_type.name, self.value}'
 
 
 if __name__ == '__main__':
+    # Testing of Token and TokenType
     a = Token(TokenType.NUMBER, 0)
     b = Token(TokenType.NUMBER, 5)
     if a == TokenType.NUMBER:
