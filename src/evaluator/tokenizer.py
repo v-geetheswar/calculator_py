@@ -1,5 +1,4 @@
 from enum import Enum
-from typing import Type
 
 
 # Define an enumeration to represent different token types.
@@ -20,6 +19,13 @@ class Token:
     """
 
     def __init__(self, token_type: TokenType, value):
+        """
+        Initialize a Token object with a token_type and the value assigned to it.
+
+        Args:
+            token_type (TokenType): The type of the token, which can be NUMBER, OPERATOR, FUNCTION, or PARENTHESIS.
+            value (any): The value of the token, which is the actual symbol or text representing the token.
+        """
         self.token_type = token_type
         self.value = value
 
