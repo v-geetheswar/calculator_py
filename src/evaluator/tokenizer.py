@@ -15,16 +15,16 @@ class Token:
 
     Args:
         token_type (TokenType): The type of the token, which can be NUMBER, OPERATOR, FUNCTION, or PARENTHESIS.
-        value (any): The value of the token, which is the actual symbol or text representing the token.
+        value (float | str): The value of the token, which is the actual symbol or text representing the token.
     """
 
-    def __init__(self, token_type: TokenType, value):
+    def __init__(self, token_type: TokenType, value: float | str):
         """
         Initialize a Token object with a token_type and the value assigned to it.
 
         Args:
             token_type (TokenType): The type of the token, which can be NUMBER, OPERATOR, FUNCTION, or PARENTHESIS.
-            value (any): The value of the token, which is the actual symbol or text representing the token.
+            value (float | str): The value of the token, which is the actual symbol or text representing the token.
         """
         self.token_type = token_type
         self.value = value
@@ -47,6 +47,9 @@ class Token:
         return self.token_type.value == other
 
     def __repr__(self):
+        # for development purpose
+        # used to print the return string on print call
+        # rather than memory location
         return f'{self.token_type.name, self.value}'
 
 
